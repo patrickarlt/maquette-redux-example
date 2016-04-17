@@ -15,7 +15,7 @@ function decrement () {
 
 export default function app (state) {
   return h('div', [
-    h('h1', `Counter: ${state}`),
+    h('h1', `Counter: ${state.counter}`),
     h('button', {
       type: 'button',
       onclick: decrement

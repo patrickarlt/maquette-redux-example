@@ -1,7 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['es6-shim', './src/index.ts'],
+  entry: ['./src/index.ts'],
   devtool: 'source-map',
   output: {
     path: __dirname + '/build',
@@ -14,7 +14,10 @@ module.exports = {
   module: {
     loaders: [
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-      { test: /\.tsx?$/, loader: 'ts-loader' }
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader'
+      }
     ]
   },
   devServer: {

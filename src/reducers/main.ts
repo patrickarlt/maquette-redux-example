@@ -1,9 +1,13 @@
-export default function counter(state = 0, action) {
+export default function counter(state, action) {
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1
+      return Object.assign({}, {
+        counter: ++state.counter
+      });
     case 'DECREMENT':
-      return state - 1
+    return Object.assign({}, {
+      counter: --state.counter
+    });
     default:
       return state
   }

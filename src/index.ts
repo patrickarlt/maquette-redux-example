@@ -1,3 +1,4 @@
+import 'es6-shim';
 import store from './store';
 import { createProjector } from 'maquette';
 import app from './components/app';

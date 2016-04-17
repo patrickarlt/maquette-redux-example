@@ -5,6 +5,9 @@ import main from './reducers/main';
 
 const store = createStore(
   main,
+  {
+    counter: 0
+  },
   applyMiddleware(
     thunk,
     promiseMiddleware()
