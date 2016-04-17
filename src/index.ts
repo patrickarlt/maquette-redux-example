@@ -2,7 +2,7 @@ import store from './store';
 import { createProjector } from 'maquette';
 import app from './components/app';
 
-const projector = createProjector();
+const projector = createProjector({});
 
 store.subscribe(function () {
   projector.scheduleRender();

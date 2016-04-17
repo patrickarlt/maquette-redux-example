@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "noEmit": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "filesGlob": [
+    "typings/main.d.ts",
+    "src/**/*.ts"
+  ],
+  "files": [
+    "typings/main.d.ts",
+    "src/components/app.ts",
+    "src/index.ts",
+    "src/reducers/main.ts",
+    "src/store.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}
