@@ -1,14 +1,6 @@
-export default function counter(state, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return Object.assign({}, {
-        counter: ++state.counter
-      });
-    case 'DECREMENT':
-    return Object.assign({}, {
-      counter: --state.counter
-    });
-    default:
-      return state
-  }
-}
+import { combineReducers } from 'redux'
+import location from './location';
+
+export default combineReducers({
+  location
+});

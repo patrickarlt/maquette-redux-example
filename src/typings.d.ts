@@ -1,4 +1,3 @@
 declare module "redux-promise-middleware" {
-  var promiseMiddleware: any;
-  export default promiseMiddleware;
+  export default function (): Redux.Middleware;
 }

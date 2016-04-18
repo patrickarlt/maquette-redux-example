@@ -1,28 +1,25 @@
 import { h } from 'maquette';
 import { dispatch } from '../store';
+import navigate from '../actions/navigate';
 
-function increment () {
-  dispatch({
-    type: 'INCREMENT'
-  });
+function navigateToFoo () {
+  dispatch(navigate('/foo'));
 }
 
-function decrement () {
-  dispatch({
-    type: 'DECREMENT'
-  });
+function navigateToBar () {
+  dispatch(navigate('/bar'));
 }
 
 export default function app (state) {
   return h('div', [
-    h('h1', `Counter: ${state.counter}`),
+    h('h1', `Path: ${state.location.pathname}`),
     h('button', {
       type: 'button',
-      onclick: decrement
-    }, ['DECREMENT']),
+      onclick: navigateToFoo
+    }, ['/foo']),
     h('button', {
       type: 'button',
-      onclick: increment
-    }, ['INCREMENT']),
+      onclick: navigateToBar
+    }, ['/bar']),
   ]);
 }
