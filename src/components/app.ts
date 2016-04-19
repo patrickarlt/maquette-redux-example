@@ -13,7 +13,7 @@ function navigateToBar () {
 
 export default function app (state: any): VNode {
   let match = router.recognize(state.location.pathname);
-  let child = match[0].handler;
+  let child = match[0].handler();
 
   return h('div', [
     h('h1', `Path: ${state.location.pathname}`),
@@ -25,6 +25,6 @@ export default function app (state: any): VNode {
       type: 'button',
       onclick: navigateToBar
     }, ['/bar']),
-    child()
+    child
   ]);
 }
