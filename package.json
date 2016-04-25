@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.7.4",
+    "deep-equal": "^1.0.1",
     "es6-shim": "^0.35.0",
     "history": "^2.0.2",
     "maquette": "^2.3.1",

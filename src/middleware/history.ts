@@ -5,7 +5,7 @@ export default function historyMiddleware (history: HistoryModule.History): Redu
     let result = next(action);
 
     if (action.type === NAVIGATE) {
-      history.push(action.payload);
+      history.push(history.createLocation(action.payload));
     }
 
     return result;

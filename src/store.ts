@@ -1,31 +1,29 @@
-import { createStore, applyMiddleware } from 'redux';
-import { createHistory, createLocation } from 'history';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import main from './reducers/main';
-import { NAVIGATE } from './actions/navigate';
-import updateLocation from './actions/update-location';
+import historyUpdate from './actions/history-update';
 import historyMiddleware from './middleware/history';
-
-const history = createHistory();
+import history from './history';
 
 const initalState = {
-  location: history.createLocation(window.location.pathname)
+  location: history.createLocation(window.location)
 };
+
+const middleware = [
+  thunk,
+  promiseMiddleware(),
+  historyMiddleware(history)
+];
 
 const store = createStore(
   main,
   initalState,
-  applyMiddleware(
-    thunk,
-    promiseMiddleware(),
-    historyMiddleware(history)
+  compose(
+    applyMiddleware(...middleware),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
-
-history.listen(location => {
-  store.dispatch(updateLocation(location));
-});
 
 export default store;
 export const dispatch = store.dispatch;
