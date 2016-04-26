@@ -4,6 +4,7 @@ import store from './store';
 import app from './components/app';
 import history from './history';
 import historyUpdate from './actions/history-update';
+import historyLocationsEqual from './util/history-locations-equal';
 
 const projector = createProjector({});
 
@@ -26,8 +27,8 @@ projector.append(document.body, function () {
 });
 
 /**
- * Listen for any updates to the history that occur, like
- * the back button.
+ * Listen for history events and dispatch a new action to
+ * the store to handle the new location.
  */
 history.listen(function (location: HistoryModule.Location) {
   store.dispatch(historyUpdate(location));
