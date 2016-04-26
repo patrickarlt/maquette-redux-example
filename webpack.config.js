@@ -1,28 +1,29 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: ['./src/index.ts'],
   devtool: 'source-map',
   output: {
     path: __dirname + '/build',
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+  },
   module: {
     loaders: [
       {
-        test: /\.js?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        test: /\.tsx?$/,
+        loader: 'ts-loader'
       }
     ]
   },
   devServer: {
     historyApiFallback: true
   },
-  plugins: [new HtmlWebpackPlugin({
-    title: 'maquette/redux/babel/webpack'
-  })]
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'maquette/redux/typescript/webpack'
+    })
+  ]
 };
