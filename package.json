@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "typeings install",
+    "postinstall": "typings install",
     "start": "webpack-dev-server --content-base build/ --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
